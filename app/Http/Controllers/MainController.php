@@ -19,6 +19,8 @@ class MainController extends Controller
         if($document){
             return view('main', compact('document'));
        }
+
+       abort(404);
         
     }
 
