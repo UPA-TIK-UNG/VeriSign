@@ -36,10 +36,10 @@
                                     <div class="mb-3">
                                         <label>Deskripsi</label>
                                         
-                                        <textarea class="form-control fw-bold" disabled rows="3" name="" cols="50">
-                                            Detail lengkap dokumen → 
-                                            {{ $document->description }}
-                                        </textarea>
+
+                                <textarea class="form-control fw-bold text-start" disabled rows="3" name="" cols="50">
+Detail lengkap dokumen → {{ $document->description }}
+</textarea>
                                     </div>
 
                                     

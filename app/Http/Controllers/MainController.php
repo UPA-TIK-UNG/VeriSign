@@ -43,6 +43,7 @@ class MainController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+
         $document = null;
 
         if($category == "ijazah") {
@@ -66,7 +67,14 @@ class MainController extends Controller
             ->whereJsonContains('document_verify', ['no_surat' => $request->no_surat])
             ->latest()
             ->first();
+        } else{
+            $document = Document::where('document_id', $uuid)
+            ->where('sign_status', '2')
+            ->latest()
+            ->first();
         }
+
+    
 
         if($document){
             if (Storage::disk('s3')->exists(str_replace(env('AWS_BUCKET')."/", "", $document->signed_file))) {
